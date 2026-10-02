@@ -1,33 +1,1395 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lego.css</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 基础SEO Meta标签 -->
+    <title>lego.css - 像乐高积木一样写CSS | 原子化CSS框架</title>
+    <meta name="description" content="lego.css是一个基于原子类设计的现代CSS框架，像乐高积木一样自由组合样式。极简语法、伪类支持、轻量级，显著提升开发效率，完美解决CSS难复用、难扩展、难维护的问题。">
+    <meta name="keywords" content="lego.css, CSS框架, 原子化CSS, 工具类优先, CSS工具库, 前端框架, 响应式设计, CSS组件">
+    <meta name="author" content="lego.css Team">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Canonical链接 -->
+    <link rel="canonical" href="https://legocss.dev/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://legocss.dev/">
+    <meta property="og:title" content="lego.css - 像乐高积木一样写CSS | 原子化CSS框架">
+    <meta property="og:description" content="基于原子类设计的现代CSS框架，极简语法，伪类支持，轻量级。像乐高积木一样自由组合样式，显著提升开发效率。">
+    <meta property="og:image" content="https://legocss.dev/public/lego.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="lego.css">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://legocss.dev/">
+    <meta property="twitter:title" content="lego.css - 像乐高积木一样写CSS">
+    <meta property="twitter:description" content="基于原子类设计的现代CSS框架，极简语法，像乐高积木一样自由组合样式。">
+    <meta property="twitter:image" content="https://legocss.dev/public/lego.png">
+    
+    <!-- 网站图标 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+    <link rel="manifest" href="/public/site.webmanifest">
+
+    <!-- 预连接优化 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- DNS预解析 -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet">
+    
+    <!-- 结构化数据 JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "lego.css",
+      "description": "基于原子类设计的现代CSS框架，像乐高积木一样自由组合样式，极简语法，伪类支持，轻量级",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "downloadUrl": "https://github.com/legocss/lego.css",
+      "softwareVersion": "1.0.0",
+      "datePublished": "2024-01-01",
+      "dateModified": "2024-12-10",
+      "author": {
+        "@type": "Organization",
+        "name": "lego.css Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "lego.css",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://legocss.dev/public/lego.png"
+        }
+      },
+      "sameAs": [
+        "https://github.com/legocss/lego.css"
+      ]
+    }
+    </script>
+    
+    <!-- 网站信息结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "lego.css",
+      "description": "像乐高积木一样写CSS的原子化CSS框架",
+      "url": "https://legocss.dev/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://legocss.dev/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "lego.css Team"
+      }
+    }
+    </script>
+    
+    <!-- 面包屑导航结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://legocss.dev/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- FAQ结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什么是lego.css？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "lego.css是一个基于原子类设计的现代CSS框架，像乐高积木一样让每个CSS类都是一个独立的'积木'，可以自由组合构建任何你想要的设计。它具有极简语法、伪类支持、轻量级等特点。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "lego.css有什么优势？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "lego.css的主要优势包括：原子化设计、极简语法（如m10代表margin:10px）、内置伪类支持、轻量级（核心文件<5KB）、高度可定制、显著提升开发效率。可以减少90%的CSS代码量，提升3倍开发效率。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何开始使用lego.css？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有三种方式开始使用lego.css：1. NPM安装：npm install legocss；2. CDN引入：直接在HTML中引用CDN链接；3. UnoCSS集成：在uno.config.ts中导入legoRules。推荐使用NPM安装方式以获得最佳开发体验。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "lego.css的语法如何使用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "lego.css使用极简的缩写语法：m10表示margin:10px，bgc#f00表示background-color:#f00，h:(bgc#f00)表示:hover状态。支持组合使用，如class='m10-20 p15-30 bgc#ff6b6b'。还支持伪类、多值语法和!important修饰符。"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- 产品信息结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "lego.css",
+      "description": "基于原子类设计的现代CSS框架，像乐高积木一样自由组合样式",
+      "brand": {
+        "@type": "Brand",
+        "name": "lego.css"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "100",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <!-- Prism.js 代码高亮 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+    <style>
+        /* 基础样式重置和全局设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Marcellus', 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* 英文字体应用 */
+        .logo,
+        .nav-links,
+        .hero-title,
+        .btn,
+        .code-block,
+        .stat-number,
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Marcellus', serif;
+        }
+        
+        /* 中文字体应用 */
+        .hero-subtitle,
+        .hero-description,
+        .feature-description,
+        .section-title,
+        .feature-title,
+        .stat-label,
+        p, span, div {
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        /* 渐变背景 */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero区域 */
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 100px 0 50px;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin: 0 10px;
+        }
+        
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* 特性部分 */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* 代码示例部分 */
+        .code-example {
+            padding: 80px 0;
+            background: #2d3748;
+            color: white;
+        }
+        
+        .code-example .section-title {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .code-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+        
+        .code-container > div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .code-container .code-block {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .code-container .code-block pre {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .code-block {
+            background: #1a202c;
+            border-radius: 10px;
+            padding: 0;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            overflow: hidden;
+            border: 1px solid #4a5568;
+            position: relative;
+        }
+        
+        .code-block code {
+            color: #e2e8f0;
+            line-height: 1.8;
+        }
+        
+        /* Prism.js 主题自定义 */
+        .code-block pre {
+            margin: 0;
+            padding: 0 2rem 2rem;
+            overflow-x: auto;
+            background: #1a202c !important;
+            border-radius: 10px;
+        }
+        
+        .code-block pre code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* 代码头部标题 */
+        .code-header {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-bottom: 1px solid #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .code-header::before {
+            content: "●●●";
+            color: #4a5568;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        /* 复制按钮样式 */
+        .code-toolbar {
+            position: absolute;
+            top: 0.8rem;
+            right: 1rem;
+        }
+        
+        .code-toolbar .toolbar-item button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #a0aec0;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .code-toolbar .toolbar-item button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        /* 自定义语法高亮颜色 */
+        .token.comment {
+            color: #718096 !important;
+            font-style: italic;
+        }
+        
+        .token.keyword,
+        .token.selector {
+            color: #81e6d9 !important;
+            font-weight: 600;
+        }
+        
+        .token.string,
+        .token.attr-value {
+            color: #90cdf4 !important;
+        }
+        
+        .token.property,
+        .token.attr-name {
+            color: #f6e05e !important;
+        }
+        
+        .token.punctuation {
+            color: #e2e8f0 !important;
+        }
+        
+        .token.tag {
+            color: #fbb6ce !important;
+        }
+        
+        .token.class-name {
+            color: #f6ad55 !important;
+        }
+        
+        .token.number {
+            color: #9f7aea !important;
+        }
+        
+        /* 保留原有的自定义语法类 */
+        .syntax-comment {
+            color: #718096;
+        }
+        
+        .syntax-tag {
+            color: #81e6d9;
+        }
+        
+        .syntax-class {
+            color: #f6e05e;
+        }
+        
+        .syntax-string {
+            color: #90cdf4;
+        }
+        
+        /* 统计数据 */
+        .stats {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #4fd1c7 0%, #81e6d9 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .code-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* 无障碍功能 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* 跳转到主内容链接 */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1001;
+            border-radius: 4px;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* 乐高积木动画效果 */
+        .lego-blocks {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            opacity: 0.1;
+        }
+        
+        .lego-block {
+            width: 60px;
+            height: 60px;
+            background: #ff6b6b;
+            border-radius: 8px;
+            margin: 5px;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .lego-block:nth-child(2) {
+            background: #4ecdc4;
+            animation-delay: -1s;
+        }
+        
+        .lego-block:nth-child(3) {
+            background: #45b7d1;
+            animation-delay: -2s;
+        }
+        
+        .lego-block::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        </style>
 </head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <div class="nav-container">
+            <a href="https://legocss.dev" class="logo" aria-label="lego.css 首页">
+                <img src="/public/lego.png" alt="lego.css 原子化CSS框架图标" width="32" height="32">
+                lego.css
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#features" role="menuitem">特性</a></li>
+                <li role="none"><a href="#examples" role="menuitem">示例</a></li>
+                <li role="none"><a href="https://xmind.ai/share/fZ0Oh0KU" role="menuitem">文档</a></li>
+                <li role="none"><a href="https://github.com/legocss/lego.css" role="menuitem" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<body class=":uno: p20!">
-    <div class=":uno: s30%-100 bgc#97c430 mb10 d-ib h:s120! h:p10! btn-10"></div>
-    <div class="s50 m10-15-20 bgc#97c430 d-ib"></div>
-    <div class="s20 p1|2em|3! bgcddd d-ib m1|2rem|3em h:m1|2em|3rem|4%!"></div>
-    <div class="s200 bgc#fe6915 f-r h:(s180! bgcfae32f p1) c:b"></div>
+    <!-- Hero 部分 -->
+    <main id="main-content">
+        <section class="hero-gradient" aria-labelledby="main-title">
+            <div class="container">
+                <header class="hero-content animate-fade-in">
+                    <h1 id="main-title" class="hero-title">lego.css</h1>
+                    <p class="hero-subtitle">像乐高积木一样写CSS</p>
+                    <p class="hero-description">
+                        基于原子类和 Pure CSS 思想设计的现代CSS框架，帮助你更快、更轻松地编写页面样式，完美解决CSS难复用、难扩展、难维护的问题。
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#get-started" class="btn btn-primary" aria-describedby="get-started-description">开始使用</a>
+                        <a href="#examples" class="btn btn-secondary" aria-describedby="examples-description">查看示例</a>
+                        <span id="get-started-description" class="sr-only">快速开始使用lego.css框架</span>
+                        <span id="examples-description" class="sr-only">查看lego.css语法示例</span>
+                    </div>
+                </header>
+            </div>
+            
+            <!-- 装饰性乐高积木 -->
+            <div class="lego-blocks" aria-hidden="true" role="presentation">
+                <div class="lego-block"></div>
+                <div class="lego-block"></div>
+                <div class="lego-block"></div>
+            </div>
+        </section>
 
-    <button class="lego-btn">按钮</button>
-    <hr class="my10 clear-both">
-    <p class="h:(c0f1 ts:1-2-5-#f00 bdb[2 db #000]) lh1.5! ls4 fl::c#f00! fs40 bd:1-s-#0FF">这里是测试文本。</p>
-    <p class="c#ddd! ma! lh20px! ti2rem fs18 fs:o ts[1 2 3 000]! fl::c#0f0">这里是测试文本2。</p>
-    <p><input type="text" placeholder="测试文本focus" class="f:(c#f60 fs-i)"></p>
-    <p class="c960! mx30 py30 td:u-dt-333! tdcred!">这里是测试文本3。</p>
-    <div class="w10vw! h10vh bgc#ddd c#333 h:(w20vw h20vh bgc#eee c#369) op0.6 bd[1 solid 0f0] ol[10 s 999]">这是一个背景 div</div>
-    <div id="app" class="m2! ma zi100 bd:1-solid-red bgi(./src/img/lego.png)"></div>
+        <!-- 特性部分 -->
+        <section id="features" class="features" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title">为什么选择 lego.css？</h2>
+                <div class="features-grid" role="list">
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">🧱</div>
+                        <h3 class="feature-title">原子化设计</h3>
+                        <p class="feature-description">
+                            像乐高积木一样，每个CSS类都是一个独立的"积木"，可以自由组合构建任何你想要的设计。
+                        </p>
+                    </article>
+                    
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">⚡</div>
+                        <h3 class="feature-title">极简语法</h3>
+                        <p class="feature-description">
+                            简洁的缩写语法，<code>m10</code> 代表 margin: 10px，<code>bgc#f00</code> 代表 background-color: #f00。
+                        </p>
+                    </article>
+                    
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">🎯</div>
+                        <h3 class="feature-title">伪类支持</h3>
+                        <p class="feature-description">
+                            内置伪类支持，<code>h:(bgc#f00)</code> 表示 hover 状态，让交互效果编写更简单。
+                        </p>
+                    </article>
+                    
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">📦</div>
+                        <h3 class="feature-title">轻量级</h3>
+                        <p class="feature-description">
+                            核心文件体积小，按需加载，结合 PurgeCSS 可以最大程度减少最终bundle大小。
+                        </p>
+                    </article>
+                    
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">🔧</div>
+                        <h3 class="feature-title">高度可定制</h3>
+                        <p class="feature-description">
+                            支持自定义配置，可以轻松扩展和修改以适应不同项目的需求。
+                        </p>
+                    </article>
+                    
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">🚀</div>
+                        <h3 class="feature-title">开发效率</h3>
+                        <p class="feature-description">
+                            显著提升开发效率，减少CSS文件大小，让你专注于业务逻辑而不是样式编写。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
+        <!-- 代码示例部分 -->
+        <section id="examples" class="code-example" aria-labelledby="examples-title">
+            <div class="container">
+                <h2 id="examples-title" class="section-title">简单易学的语法</h2>
+                <div class="code-container">
+                    <article>
+                        <h3 style="margin-bottom: 1rem; color: #81e6d9;">传统CSS写法</h3>
+                        <div class="code-block" role="complementary" aria-label="传统CSS代码示例">
+                            <div class="code-header">style.css</div>
+                            <pre><code class="language-css">/* 传统CSS需要写很多代码 */
+.my-button {
+  margin: 10px 20px;
+  padding: 15px 30px;
+  background-color: #ff6b6b;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid #ff6b6b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    <div class="c#f00 c-green s100px|100em m-1|2|3|4 bd-1|s|#000 hover:(tdc#0ff ti2rem) a:zi100">思考</div>
-    <script type="module" src="/main.js"></script>
+.my-button:hover {
+  background-color: #ff5252;
+  border-color: #ff5252;
+  transform: translateY(-2px);
+}
 
+/* 需要更多代码来处理复杂样式 */
+.interactive-container {
+  width: 200px;
+  height: 200px;
+  background-color: #fe6915;
+  float: right;
+  transition: all 0.3s ease;
+}
 
+.interactive-container:hover {
+  width: 180px !important;
+  height: 180px !important;
+  background-color: #fae32f;
+  padding: 1px;
+}</code></pre>
+                    </div>
+                    
+                    </article>
+                    
+                    <article>
+                        <h3 style="margin-bottom: 1rem; color: #81e6d9;">lego.css写法</h3>
+                        <div class="code-block" role="complementary" aria-label="lego.css代码示例">
+                            <div class="code-header">index.html</div>
+                            <pre><code class="language-html">&lt;!-- 只需要一行HTML class --&gt;
+&lt;button class="
+  m10-20 p15-30 bgc#ff6b6b c#fff 
+  bd[1 solid #ff6b6b] fs16 c-pointer
+  h:(bgc#ff5252 bd[1 solid #ff5252] t[translateY(-2px)])
+"&gt;
+  按钮文本
+&lt;/button&gt;
+
+&lt;!-- 复杂交互效果，一行搞定 --&gt;
+&lt;div class="s200 bgc#fe6915 f-r h:(s180! bgc#fae32f p1)"&gt;
+  可交互容器
+&lt;/div&gt;
+
+&lt;!-- 复杂文本样式 --&gt;
+&lt;p class="
+  h:(c#0f1 ts[1 2 5 #f00] bdb[2 dashed #000]) 
+  lh1.5! ls4 fs40 bd[1 solid #0FF]
+"&gt;
+  悬停文本效果
+&lt;/p&gt;
+
+&lt;!-- Flexbox 布局示例 --&gt;
+&lt;div class="d-flex jc-center ai-center h100vh bgc#f0f0f0"&gt;
+  &lt;div class="p20 bgc#fff bd[1 solid #ddd] br10 ta-center"&gt;
+    完美居中的卡片
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 语法表格部分 -->
+    <section style="padding: 80px 0; background: white;">
+        <div class="container">
+            <h2 class="section-title">核心语法规则</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                掌握这些基础语法，你就能轻松构建任何你想要的样式效果
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- 尺寸与间距 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">📏 尺寸与间距</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">m10</span>
+                            <span style="color: #666;">margin: 10px</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">m10-20</span>
+                            <span style="color: #666;">margin: 10px 20px</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">mt10</span>
+                            <span style="color: #666;">margin-top: 10px</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">p15</span>
+                            <span style="color: #666;">padding: 15px</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">w100%</span>
+                            <span style="color: #666;">width: 100%</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">h50vh</span>
+                            <span style="color: #666;">height: 50vh</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">s200</span>
+                            <span style="color: #666;">width & height: 200px</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 颜色系统 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">🎨 颜色系统</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">c#f00</span>
+                            <span style="color: #666;">color: #f00</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">bgc#97c430</span>
+                            <span style="color: #666;">background-color: #97c430</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">bc#000</span>
+                            <span style="color: #666;">border-color: #000</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">cred</span>
+                            <span style="color: #666;">color: red</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">bgcwhite</span>
+                            <span style="color: #666;">background-color: white</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 布局定位 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">📐 布局定位</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">d-block</span>
+                            <span style="color: #666;">display: block</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">d-flex</span>
+                            <span style="color: #666;">display: flex</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">p-absolute</span>
+                            <span style="color: #666;">position: absolute</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">f-left</span>
+                            <span style="color: #666;">float: left</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">zi100</span>
+                            <span style="color: #666;">z-index: 100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 边框样式 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">🔲 边框样式</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">bd[1 solid #000]</span>
+                            <span style="color: #666;">border: 1px solid #000</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">bdt[2 dashed red]</span>
+                            <span style="color: #666;">border-top: 2px dashed red</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">bw2</span>
+                            <span style="color: #666;">border-width: 2px</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">bds-dashed</span>
+                            <span style="color: #666;">border-style: dashed</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">ol[2 solid #999]</span>
+                            <span style="color: #666;">outline: 2px solid #999</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 文本字体 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">📝 文本字体</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">fs16</span>
+                            <span style="color: #666;">font-size: 16px</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">fw-bold</span>
+                            <span style="color: #666;">font-weight: bold</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">lh1.5</span>
+                            <span style="color: #666;">line-height: 1.5</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">ta-center</span>
+                            <span style="color: #666;">text-align: center</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">ls2</span>
+                            <span style="color: #666;">letter-spacing: 2px</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">ts[1 2 3 #000]</span>
+                            <span style="color: #666;">text-shadow: 1px 2px 3px #000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flexbox布局 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">🔧 Flexbox 布局</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">fd-row</span>
+                            <span style="color: #666;">flex-direction: row</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">jc-center</span>
+                            <span style="color: #666;">justify-content: center</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">ai-center</span>
+                            <span style="color: #666;">align-items: center</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">fw-wrap</span>
+                            <span style="color: #666;">flex-wrap: wrap</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">as-stretch</span>
+                            <span style="color: #666;">align-self: stretch</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 伪类状态 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">✨ 伪类状态</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">h:bgc#f00</span>
+                            <span style="color: #666;">:hover { background-color: #f00 }</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">h:(c#fff p10)</span>
+                            <span style="color: #666;">:hover { color: #fff; padding: 10px }</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">a:c#0ff</span>
+                            <span style="color: #666;">:active { color: #0ff }</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">f:fs-italic</span>
+                            <span style="color: #666;">:focus { font-style: italic }</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">lh1.5!</span>
+                            <span style="color: #666;">line-height: 1.5 !important</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 其他属性 -->
+                <div class="feature-card" style="text-align: left;">
+                    <h3 style="color: #667eea; margin-bottom: 1.5rem; text-align: center;">🎛️ 其他属性</h3>
+                    <div style="font-family: 'Fira Code', 'Consolas', monospace; color: #555; line-height: 2.2; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">o-hidden</span>
+                            <span style="color: #666;">overflow: hidden</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">o0.5</span>
+                            <span style="color: #666;">opacity: 0.5</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">v-hidden</span>
+                            <span style="color: #666;">visibility: hidden</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <span style="color: #e91e63; font-weight: bold;">c-pointer</span>
+                            <span style="color: #666;">cursor: pointer</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; align-items: center; padding: 0.3rem 0;">
+                            <span style="color: #e91e63; font-weight: bold;">bs-border-box</span>
+                            <span style="color: #666;">box-sizing: border-box</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 高级特性展示 -->
+            <div style="margin-top: 4rem; text-align: center;">
+                <h3 style="color: #333; margin-bottom: 2rem; font-size: 1.8rem;">🚀 高级特性</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px;">
+                        <h4 style="color: #667eea; margin-bottom: 1rem;">组合语法</h4>
+                        <div style="background: #2d3748; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; text-align: left; border: 1px solid #4a5568;">
+                            <code style="color: #e2e8f0; font-size: 0.9rem; font-family: 'Fira Code', 'Consolas', monospace;">
+class="s200 bgc#fe6915 f-r 
+       h:(s180! bgc#fae32f p1)"
+                            </code>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem;">复杂的悬停状态组合效果</p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px;">
+                        <h4 style="color: #667eea; margin-bottom: 1rem;">多值语法</h4>
+                        <div style="background: #2d3748; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; text-align: left; border: 1px solid #4a5568;">
+                            <code style="color: #e2e8f0; font-size: 0.9rem; font-family: 'Fira Code', 'Consolas', monospace;">
+class="m10-15-20 
+       p1|2em|3! 
+       bd[2 db #000]"
+                            </code>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem;">支持多值和数组式写法</p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px;">
+                        <h4 style="color: #667eea; margin-bottom: 1rem;">重要性修饰</h4>
+                        <div style="background: #2d3748; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; text-align: left; border: 1px solid #4a5568;">
+                            <code style="color: #e2e8f0; font-size: 0.9rem; font-family: 'Fira Code', 'Consolas', monospace;">
+class="lh1.5! 
+       c#ddd! 
+       fs18!"
+                            </code>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem;">使用 ! 添加 !important</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 统计数据 -->
+    <section class="stats" aria-labelledby="stats-title">
+        <div class="container">
+            <h2 id="stats-title" class="sr-only">lego.css核心数据统计</h2>
+            <div class="stats-grid" role="list" aria-label="产品优势统计数据">
+                <div class="stat-item" role="listitem">
+                    <div class="stat-number" aria-label="减少90%CSS代码量">90%</div>
+                    <div class="stat-label">减少CSS代码量</div>
+                </div>
+                <div class="stat-item" role="listitem">
+                    <div class="stat-number" aria-label="提升3倍开发效率">3x</div>
+                    <div class="stat-label">提升开发效率</div>
+                </div>
+                <div class="stat-item" role="listitem">
+                    <div class="stat-number" aria-label="核心文件小于5KB">&lt;5KB</div>
+                    <div class="stat-label">核心文件大小</div>
+                </div>
+                <div class="stat-item" role="listitem">
+                    <div class="stat-number" aria-label="超过100个内置原子类">100+</div>
+                    <div class="stat-label">内置原子类</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 开始使用部分 -->
+    <section id="get-started" style="padding: 80px 0; background: white;">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">立即开始使用</h2>
+            <p style="font-size: 1.2rem; color: #666; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                选择最适合你项目的安装方式，几分钟内就能开始使用 lego.css
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="feature-card">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">📦 NPM 安装</h3>
+                    <div class="code-block" style="text-align: left; margin: 1rem 0;">
+                        <div class="code-header">终端</div>
+                        <pre><code class="language-bash">npm install legocss</code></pre>
+                    </div>
+                    <p style="color: #666;">适合现代构建工具和JavaScript项目</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">🔗 CDN 引入</h3>
+                    <div class="code-block" style="text-align: left; margin: 1rem 0;">
+                        <div class="code-header">index.html</div>
+                        <pre><code class="language-html">&lt;link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/legocss@latest/dist/lego.min.css"&gt;</code></pre>
+                    </div>
+                    <p style="color: #666;">快速开始，无需构建过程</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">⚡ UnoCSS 集成</h3>
+                    <div class="code-block" style="text-align: left; margin: 1rem 0;">
+                        <div class="code-header">uno.config.ts</div>
+                        <pre><code class="language-javascript">import { defineConfig } from 'unocss'
+import { legoRules } from 'legocss/unocss'
+
+export default defineConfig({
+  rules: [...legoRules],
+})</code></pre>
+                    </div>
+                    <p style="color: #666;">与 UnoCSS 完美集成，按需生成</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <a href="https://xmind.ai/share/fZ0Oh0KU" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">
+                    查看完整文档
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 lego.css. 开源项目，MIT 许可证</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://xmind.ai/share/fZ0Oh0KU">文档</a>
+                    <a href="https://github.com/legocss/lego.css">GitHub</a>
+                    <a href="https://github.com/legocss/lego.css/issues">问题反馈</a>
+                    <a href="https://github.com/legocss/lego.css/pulls">贡献指南</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 简单的入场动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 为所有feature卡片添加动画
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+
+    <!-- Prism.js JavaScript 文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 </body>
-
 </html>

@@ -5,6 +5,54 @@
 <h4 align="center">Write CSS like LEGO</h4>
 <p>`lego.css` 基于原子类和 `Pure CSS` 两者的思想设计，可以帮助更快更轻松的编写页面 CSS 样式，平滑解决项目中 CSS 难复用、难扩展、难维护的问题。</p>
 
+## 使用 UnoCSS 预设
+
+- 安装：`npm i -D @legocssdev/unocss-preset-legocss`。
+- 在 `uno.config.js` 中直接引入 `legoPreset`：预设已内置规则、variants、transformers（边框/文本阴影解析与 variant group），无需手动重复配置。
+- 可选参数：`defaultUnit`（默认 `px`）、`unitlessKeys`（默认 `['lh','zi','fw','op']`）、`important`（是否默认追加 `!important`）。
+
+```js
+import { defineConfig, presetUno } from 'unocss'
+import legoPreset from '@legocssdev/unocss-preset-legocss'
+
+export default defineConfig({
+  presets: [
+    presetUno(),
+    legoPreset({ important: false }),
+  ],
+})
+```
+
+## 项目结构（节选）
+
+- `unocss/preset.js`：暴露 `legoPreset` 工厂与 `createImportantVariant`。
+- `unocss/rules/`：基础数值规则、边框/文本等静态规则、伪类与伪元素 variants。
+- `unocss/transformers/`：边框/文本阴影解析与 variant group 处理。
+- `unocss/utils/`：数值/单位解析工具与测试。
+- `demo/`、`src/`：示例与 SCSS 源码。
+
+## 响应式断点前缀
+
+- 内置 `sm / md / lg / xl / 2xl`，分别对应 `@media (min-width: 640/768/1024/1280/1536px)`。
+- 可与伪类和分组组合使用，例如 `md:h:bgc#f00` 或 `md:(d-flex gp16)`。
+
+## 数值与单位约定
+
+- 默认长度单位为 `px`，但数值 `0` 以及缩写 `lh/zi/fw/op` 不会自动追加单位（保持裸数更贴近原生语义）。
+- 支持的显式单位：`px|em|rem|vh|vw|%|svh|lvh|svw|lvw|dvw|svi|lvi|dvb`；提供这些单位时不会再追加默认单位。
+- 若传入 `calc(...)` 等原生值或使用 `abbr[...]` 透传，runtime 会原样输出，便于处理特殊场景。
+- 时间等非长度单位会按属性类型选择默认单位：如 `transition-duration` 缺单位时补 `ms`，显式 `s/ms` 将被保留；后续可按需扩展 angle/resolution/frequency。
+
+## 核心缩写扩展（示例）
+
+- 文本与方向：`ti` (text-indent)、`dir` (direction)、`ub` (unicode-bidi)、`tj` (text-justify)、`va` (vertical-align)、`wsp` (word-spacing)、`ww` (word-wrap)。
+- 背景：`bga` (background-attachment)、`bgp` (background-position)、`bgr` (background-repeat)、`bgs` (background-size)。
+- 列表：`lst` (list-style-type)、`lsp` (list-style-position)、`lsi` (list-style-image)、`lsy` (list-style)。
+
+## LLM 参考
+
+- 快速值类型/命名对照见 `docs/llms.txt`，含示例类名与生成 CSS，便于模型对齐格式。
+
 ## 架构
 
 1. Naming
